@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  div.container
+    div.row
+      div.col
+      div.col-7
+        form(action='/', method='post')
+          div.row.py-3
+            div.col
+              label(for='returnAddressLabelTemplate',class='font-weight-bold') Return Address Label Template
+                select(class='form-control', id='labelTemplate', name='labelTemplate')
+                  if labelTemplates
+                    for labelTemplate in labelTemplates
+                      option(
+                        value=(labelTemplate.templateName)
+                        selected=(undefined===label ? labelTemplate.templateName==='Avery 15667' : label.labelTemplate === labelTemplate.templateName)
+                      )
+                        !=labelTemplate.templateName
+          div.row.py-3
+            div.col
+              label(for='addressLine1',class='font-weight-bold') Address Line 1
+              input(type='text',class='form-control',id='addressLine1',name='addressLine1',placeholder='The Jones Family',value=(undefined===label ? '' : label.addressLine1))              
+              if errors
+                for error in errors
+                  - if (error.param === 'addressLine1')
+                    span.text-danger
+                      !=error.msg
+          div.row.py-3
+            div.col
+              label(for='addressLine2',class='font-weight-bold') Address Line 2
+              input(type='text',class='form-control',id='addressLine2',name='addressLine2',placeholder='123 Main St.',value=(undefined===label ? '' : label.addressLine2))
+              if errors
+                for error in errors
+                  - if (error.param === 'addressLine2')
+                    span.text-danger
+                      !=error.msg
+          div.row.py-3  
+            div.col
+              label(for='addressLine3',class='font-weight-bold') Address Line 3
+              input(type='text',class='form-control',id='addressLine3',name='addressLine3',placeholder='Anywhere, CA 12345',value=(undefined===label ? '' : label.addressLine3))
+              if errors
+                for error in errors
+                  - if (error.param === 'addressLine3')
+                    span.text-danger
+                      !=error.msg
+          button(type='submit',class='btn btn-primary float-right',id='downloadLabels') Download Labels
+      div.col
