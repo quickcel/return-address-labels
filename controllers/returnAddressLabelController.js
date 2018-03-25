@@ -138,7 +138,7 @@ exports.returnAddressLabels_create_post = [
 
         //Set the Global document styling settings        
         doc.fontSize(7);
-        doc.font('fonts/Open_sans/OpenSans-Regular.ttf')
+        doc.font('fonts/Open_Sans/OpenSans-Regular.ttf')
           //doc.font('fonts/Roboto/Roboto-Light.ttf')
 
         //Settings that are specific to a template layout for how to position the input
