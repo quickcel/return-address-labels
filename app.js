@@ -12,7 +12,7 @@ var app = express();
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://returnaddresslabels:returnaddresslabels@ds123556.mlab.com:23556/returnaddresslabels';
+var mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, {
   //useMongoClient: true
 });

@@ -1,0 +1,1 @@
+SET DEBUG=reteurn-address-labels:* & npm run devstart
